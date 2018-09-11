@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Move the ball</title>
+		<style>
+			body{
+				background:#ddd;
+				margin:0 auto;
+				width:80%;
+			}
+			#my-canvas{
+				background:#000;
+			}
+		</style>
+		<script>
+			var posX=0;
+			function draw()
+			{
+				var ctx=document.getElementById('my-canvas').getContext('2d');
+				
+				setInterval(function(){
+					posX+=5;
+					ctx.fillStyle="rgba(0,0,0,0.6)";
+					ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
+					
+					ctx.fillStyle="white";
+					ctx.beginPath();
+					ctx.arc(posX,100,20,0,Math.PI*2,false);
+					ctx.fill();
+					
+				},30);
+				
+			}
+			
+			window.onload= draw;
+		</script>
+	</head>
+	<body>
+		<canvas id="my-canvas" width="600" height="400">
+	</body>
+</html>
